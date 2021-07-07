@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'A library to access Metactitic data by scraping the web pages.'
   spec.homepage      = 'https://nofeed.org'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
