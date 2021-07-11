@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'addressable'
+require 'facets'
 require 'mechanize'
 
 require 'metacritic/search'

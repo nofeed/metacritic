@@ -3,6 +3,7 @@
 module Metacritic
   module Search
     BASE_URL = 'https://www.metacritic.com/search'
+    MEDIA_TYPES = { all: :all, games: 'game' }.freeze
 
     attr_reader :endpoint
 
@@ -15,7 +16,7 @@ module Metacritic
     end
 
     def media_type
-      @media_type ||= @options.fetch(:media_type, 'all')
+      @media_type ||= MEDIA_TYPES[@options.fetch(:media_type, :all)]
     end
 
     private
