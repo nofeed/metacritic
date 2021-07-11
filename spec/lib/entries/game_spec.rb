@@ -41,4 +41,10 @@ RSpec.describe Metacritic::Game do
       expect(game.metascore).to eq(89)
     end
   end
+
+  describe '#thumbnail_url' do
+    it 'is set' do
+      expect(game.thumbnail_url).to eq('https://static.metacritic.com/images/products/games/5/3aabc951f24c35d7351085a71ae61067-78.jpg')
+    end
+  end
 end

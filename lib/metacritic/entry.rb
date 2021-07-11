@@ -24,5 +24,9 @@ module Metacritic
     def metascore
       @metascore ||= content.search('.metascore_w').text.to_i
     end
+
+    def thumbnail_url
+      @thumbnail_url ||= content.search('.result_thumbnail img').attr('src').text
+    end
   end
 end
