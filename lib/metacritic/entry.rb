@@ -10,7 +10,19 @@ module Metacritic
     end
 
     def title
-      @title ||= content.search('.product_title').text.tr("\n", '').squish
+      @title ||= if search?
+                   content.search('.product_title').text.tr("\n", '')
+                 elsif page?
+                   content.search('.product_title h1').text
+                 end.squish
+    end
+
+    def page_path
+      @page_url ||= content.search('.product_title a').attr('href').text if search?
+    end
+
+    def slug
+      @slug ||= page_path.split('/').last if search?
     end
 
     def description
@@ -27,6 +39,14 @@ module Metacritic
 
     def thumbnail_url
       @thumbnail_url ||= content.search('.result_thumbnail img').attr('src').text
+    end
+
+    private
+
+    { search?: :search, page?: :page }.each do |meth, key|
+      define_method meth do
+        @origin == key
+      end
     end
   end
 end

@@ -10,7 +10,7 @@ module Metacritic
 
     def each
       @results_page.search('ul.search_results li').each do |content|
-        yield Metacritic.build_entry(content)
+        yield Metacritic.build_entry(content, :search)
       end
     end
 

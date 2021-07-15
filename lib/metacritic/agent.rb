@@ -3,6 +3,7 @@
 module Metacritic
   class Agent < Mechanize
     include ::Metacritic::Search
+    include ::Metacritic::Fetch
 
     attr_reader :user_agent
 
